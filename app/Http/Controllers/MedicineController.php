@@ -7,25 +7,10 @@ use Illuminate\Http\Request;
 
 class MedicineController extends Controller
 {
-
-
     public function index()
     {
-        $totalMedicines = Medicine::count();
-        $lowStockCount = Medicine::where('quantity', '<=', 5)->count();
-        $expiredCount = Medicine::where('expiration_date', '<', now())->count();
-        $expiringSoonCount = Medicine::whereBetween('expiration_date', [now(), now()->addDays(30)])->count();
-        $availableCount = Medicine::where('status', 'available')
-            ->where('quantity', '>', 0)
-            ->where('expiration_date', '>=', now())
-            ->count();
-
         $medicines = Medicine::latest()->paginate(10);
-
-        return view('medicines.index', compact(
-            'totalMedicines', 'lowStockCount', 'expiredCount',
-            'expiringSoonCount', 'availableCount', 'medicines'
-        ));
+        return view('medicines.index', compact('medicines'));
     }
 
     public function create()

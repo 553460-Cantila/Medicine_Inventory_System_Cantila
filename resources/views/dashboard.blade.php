@@ -9,7 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+                    {{ __(" MEDECINE INVENTORY SYSTEM OVERVIEW: 
+                    Develop a Laravel-based Medicine Inventory Management System using the MVC architecture. The system will focus on user authentication, medicine management, and inventory reports. The application must follow Laravel standards using routes, controllers, models, migrations, Blade templates, validation, and database relationships.") }}
                 </div>
             </div>
         </div>
