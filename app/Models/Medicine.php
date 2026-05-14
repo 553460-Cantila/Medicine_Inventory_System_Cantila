@@ -23,4 +23,19 @@ class Medicine extends Model
         'expiration_date' => 'date',
         'price' => 'decimal:2'
     ];
+
+    public function scopeExpired($query)
+    {
+        return $query->where('expiration_date', '<', now());
+    }
+
+    public function scopeValid($query)
+    {
+        return $query->where('expiration_date', '>=', now());
+    }
+
+    public function scopeExpiringSoon($query, $days = 30)
+    {
+        return $query->whereBetween('expiration_date', [now(), now()->addDays($days)]);
+    }
 }
