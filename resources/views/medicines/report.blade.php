@@ -35,7 +35,7 @@
                     <td>{{ $m->category }}</td>
                     <td>{{ $m->quantity }}</td>
                     <td>{{ $m->expiration_date->format('Y-m-d') }}</td>
-                    <td>${{ number_format($m->price,2) }}</td>
+                    <td>Php {{ number_format($m->price,2) }}</td>
                     <td>{{ ucfirst($m->status) }}</td>
                 </tr>
                 @empty
